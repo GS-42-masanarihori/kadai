@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+body{
+	background: #e0e0e0;
+}
+.login{
+	background: #e0e0e0;
+	width: 15%;
+	margin: 0 auto;
+}
+
+.login dt{
+	font-size: 18px;
+	text-align: center;
+}
+
+.submit{
+	text-align: center;
+}
+
+.main-contents{
+	background: blue;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.main-contents img{
+	display: block;
+	margin: 0 auto;
+}
+
+.message{
+	background: green;
+	width: 70%;
+	margin: 0 auto;
+	position: absolute;
+	top: 400px;
+	left: 15%;
+}
+.message p{
+	text-align: center;
+	font-size: 14px;
+}
+
+.login-text{
+	width: 70%;
+	margin:  0 auto;
+}
+
+.login-text p{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
