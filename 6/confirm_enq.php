@@ -2,62 +2,62 @@
 
 //アンケート確認ページ
 
-session_start();
+// session_start();
 
-if(isset($_POST['my_id'])){
-	$_SESSION['my_id'] = $_POST['my_id'];
-}
+// if(isset($_POST['my_id'])){
+// 	$_SESSION['my_id'] = $_POST['my_id'];
+// }
 
-if(isset($_POST['number'])){
-	$_SESSION['number'] = $_POST['number'];
-}
+// if(isset($_POST['number'])){
+// 	$_SESSION['number'] = $_POST['number'];
+// }
 
-if(isset($_POST['mail'])){
-	$_SESSION['mail'] = $_POST['mail'];
-}
+// if(isset($_POST['mail'])){
+// 	$_SESSION['mail'] = $_POST['mail'];
+// }
 
-if(isset($_POST['gender'])){
-	$_SESSION['gender'] = $_POST['gender'];
-}
+// if(isset($_POST['gender'])){
+// 	$_SESSION['gender'] = $_POST['gender'];
+// }
 
-if(isset($_POST['hobby'])){
-	$_SESSION['hobby'] = $_POST['hobby'];
-}
+// if(isset($_POST['hobby'])){
+// 	$_SESSION['hobby'] = $_POST['hobby'];
+// }
 
-if(isset($_POST['lastyear'])){
-	$_SESSION['lastyear'] = $_POST['lastyear'];
-}
+// if(isset($_POST['lastyear'])){
+// 	$_SESSION['lastyear'] = $_POST['lastyear'];
+// }
 
-if(isset($_POST['thisyear'])){
-	$_SESSION['thisyear'] = $_POST['thisyear'];
-}
+// if(isset($_POST['thisyear'])){
+// 	$_SESSION['thisyear'] = $_POST['thisyear'];
+// }
 //POST→SESSIONとなった情報を取得
-$myid = $_SESSION['my_id'];
-$number = $_SESSION['number'];
-$mail = $_SESSION['mail'];
-$gender = $_SESSION['gender'];
-if(empty($_SESSION['hobby'])){
-	$hobby = 'なし';
-}else{
-	$hobby = $_SESSION['hobby'];
-}
-$lastyear = $_SESSION['lastyear'];
-$thisyear = $_SESSION['thisyear'];
+// $myid = $_POST['my_id'];
+// $number = $_POST['number'];
+// $mail = $_POST['mail'];
+// $gender = $_POST['gender'];
+// if(empty($_POST['hobby'])){
+// 	$hobby = 'なし';
+// }else{
+// 	$hobby = $_POST['hobby'];
+// }
+// $lastyear = $_POST['lastyear'];
+// $thisyear = $_POST['thisyear'];
 
-//csvファイルにして書き込む
-$title = ['名前','出席番号','メールアドレス','性別','趣味','去年の一番の思い出','今年の抱負'];
-$vararray = [$myid,$number,$mail,$gender,$hobby,$lastyear,$thisyear];
-//文字列をUTF-8から変換
-mb_convert_variables('SJIS-win', 'UTF-8', $title);
-mb_convert_variables('SJIS-win', 'UTF-8', $vararray);
-//ファイルへ書き込み実行
-$handle = fopen('data/data.csv','a');
-flock($handle,LOCK_EX);
-fputcsv($handle,$title);
-fputcsv($handle,$vararray);
-//↑ここでエラー
-flock($handle,LOCK_UN);
-fclose($handle);
+// //csvファイルにして書き込む
+// $title = ['名前','出席番号','メールアドレス','性別','趣味','去年の一番の思い出','今年の抱負'];
+// $vararray = [$myid,$number,$mail,$gender,$hobby,$lastyear,$thisyear];
+// //文字列をUTF-8から変換
+// mb_convert_variables('SJIS-win', 'UTF-8', $title);
+// mb_convert_variables('SJIS-win', 'UTF-8', $vararray);
+// //ファイルへ書き込み実行
+// $handle = fopen('data/data.csv','a');
+// flock($handle,LOCK_EX);
+// fputcsv($handle,$title);
+// fputcsv($handle,$vararray);
+// //↑ここでエラー
+// flock($handle,LOCK_UN);
+// fclose($handle);
 
 ?>
 
@@ -75,21 +75,21 @@ fclose($handle);
 	</div>
 	<div class="enq_answer">
 		<!-- 名前 -->
-		<p class="ans-one"><?php echo htmlspecialchars($_SESSION['my_id']);?></p>
+		<p class="ans-one"><?php echo htmlspecialchars($_POST['my_id']);?></p>
 		<!-- 出席番号 -->
-		<p class="ans-two"><?php echo htmlspecialchars($_SESSION['number']);?></p>
+		<p class="ans-two"><?php echo htmlspecialchars($_POST['number']);?></p>
 		<!-- メールアドレス -->
-		<p class="ans-three"><?php echo htmlspecialchars($_SESSION['mail']);?></p>
+		<p class="ans-three"><?php echo htmlspecialchars($_POST['mail']);?></p>
 		<!-- 性別 -->
-		<p class="ans-four"><?php echo htmlspecialchars($_SESSION['gender']);?></p>
+		<p class="ans-four"><?php echo htmlspecialchars($_POST['gender']);?></p>
 		<!-- 趣味 -->
-		<p class="ans-five"><?php foreach ($_SESSION['hobby'] as $hobby) {
+		<p class="ans-five"><?php foreach ($_POST['hobby'] as $hobby) {
 			echo htmlspecialchars($hobby,ENT_QUOTES).'<br>';
 		}?></p>
 		<!-- 去年の思い出 -->
-		<p class="ans-six"><?php echo htmlspecialchars($_SESSION['lastyear']);?></p>
+		<p class="ans-six"><?php echo htmlspecialchars($_POST['lastyear']);?></p>
 		<!-- 今年の抱負 -->
-		<p class="ans-seven"><?php echo htmlspecialchars($_SESSION['thisyear']);?></p>
+		<p class="ans-seven"><?php echo htmlspecialchars($_POST['thisyear']);?></p>
 	</div>
 
 	<p><a href="input_finish.php">アンケートを送信する</a></p>

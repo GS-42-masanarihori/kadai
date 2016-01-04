@@ -7,7 +7,36 @@
 //ご協力ありがとうございました！
 //下記の「おみくじを引く！」ボタンを押して、今年の運勢を占いましょう！
 //
+
 session_start();
+
+if(isset($_POST['my_id'])){
+	$_SESSION['my_id'] = $_POST['my_id'];
+}
+
+if(isset($_POST['number'])){
+	$_SESSION['number'] = $_POST['number'];
+}
+
+if(isset($_POST['mail'])){
+	$_SESSION['mail'] = $_POST['mail'];
+}
+
+if(isset($_POST['gender'])){
+	$_SESSION['gender'] = $_POST['gender'];
+}
+
+if(isset($_POST['hobby'])){
+	$_SESSION['hobby'] = $_POST['hobby'];
+}
+
+if(isset($_POST['lastyear'])){
+	$_SESSION['lastyear'] = $_POST['lastyear'];
+}
+
+if(isset($_POST['thisyear'])){
+	$_SESSION['thisyear'] = $_POST['thisyear'];
+}
 
 ?>
 
