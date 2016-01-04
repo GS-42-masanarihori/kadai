@@ -2,29 +2,6 @@
 
 //アンケート確認ページ
 
-// 確認ページ
-
-// 情報1
-// —————————————————————
-// 情報2
-// —————————————————————
-// 情報3
-// —————————————————————
-// 情報4
-// —————————————————————
-// 情報5
-// —————————————————————
-// 情報6
-// —————————————————————
-// 情報7
-// —————————————————————
-// 情報8
-// —————————————————————
-
-// テキストエリアの部分をどうするか？？
-//全体をBOXで囲むようなデザインにする？
-
-//シンプルに内容をテキストで出力する。
 session_start();
 
 if(isset($_POST['my_id'])){
@@ -60,16 +37,16 @@ $number = $_SESSION['number'];
 $mail = $_SESSION['mail'];
 $gender = $_SESSION['gender'];
 if(empty($_SESSION['hobby'])){
-	$csvhobby = 'なし';
+	$hobby = 'なし';
 }else{
-	$csvhobby = $_SESSION['hobby'];
+	$hobby = $_SESSION['hobby'];
 }
 $lastyear = $_SESSION['lastyear'];
 $thisyear = $_SESSION['thisyear'];
 
 //csvファイルにして書き込む
 $title = ['名前','出席番号','メールアドレス','性別','趣味','去年の一番の思い出','今年の抱負'];
-$vararray = [$myid,$number,$mail,$gender,$csvhobby,$lastyear,$thisyear];
+$vararray = [$myid,$number,$mail,$gender,$hobby,$lastyear,$thisyear];
 //文字列をUTF-8から変換
 mb_convert_variables('SJIS-win', 'UTF-8', $title);
 mb_convert_variables('SJIS-win', 'UTF-8', $vararray);
