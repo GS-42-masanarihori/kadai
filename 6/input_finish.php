@@ -1,36 +1,6 @@
 <?php 
 
-//アンケート終了、THANK YOU ページ
-
 session_start();
-
-// if(isset($_POST['my_id'])){
-// 	$_SESSION['my_id'] = $_POST['my_id'];
-// }
-
-// if(isset($_POST['number'])){
-// 	$_SESSION['number'] = $_POST['number'];
-// }
-
-// if(isset($_POST['mail'])){
-// 	$_SESSION['mail'] = $_POST['mail'];
-// }
-
-// if(isset($_POST['gender'])){
-// 	$_SESSION['gender'] = $_POST['gender'];
-// }
-
-// if(isset($_POST['hobby'])){
-// 	$_SESSION['hobby'] = $_POST['hobby'];
-// }
-
-// if(isset($_POST['lastyear'])){
-// 	$_SESSION['lastyear'] = $_POST['lastyear'];
-// }
-
-// if(isset($_POST['thisyear'])){
-// 	$_SESSION['thisyear'] = $_POST['thisyear'];
-// }
 
 ?>
 
@@ -39,8 +9,7 @@ session_start();
 <head>
 	<meta charset="UTF-8">
 	<title>アンケート内容確認ページ</title>
-	<link rel="stylesheet" href="./css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="./css/input_finish_style.css">
 </head>
 <body>
 	<div class="confirm_message">
@@ -48,27 +17,36 @@ session_start();
 		<h2>下記の内容で受け付けました！</h2>
 	</div>
 	<div class="enq_answer">
-		<!-- 名前 -->
-		<p class="ans-one"><?php echo htmlspecialchars($_SESSION['my_id']);?></p>
-		<!-- 出席番号 -->
-		<p class="ans-two"><?php echo htmlspecialchars($_SESSION['number']);?></p>
-		<!-- メールアドレス -->
-		<p class="ans-three"><?php echo htmlspecialchars($_SESSION['mail']);?></p>
-		<!-- 性別 -->
-		<p class="ans-four"><?php echo htmlspecialchars($_SESSION['gender']);?></p>
-		<!-- 趣味 -->
-		<p class="ans-five"><?php foreach ($_SESSION['hobby'] as $hobby) {
-			echo htmlspecialchars($hobby,ENT_QUOTES).'<br>';
-		}?></p>
-		<!-- 去年の思い出 -->
-		<p class="ans-six"><?php echo htmlspecialchars($_SESSION['lastyear']);?></p>
-		<!-- 今年の抱負 -->
-		<p class="ans-seven"><?php echo htmlspecialchars($_SESSION['thisyear']);?></p>
+		<dl>
+			<dt>名前</dt>
+			<dd><p class="ans-one"><?php echo htmlspecialchars($_SESSION['my_id']);?></p></dd>
+			
+			<dt>出席番号</dt>
+			<dd><p class="ans-two"><?php echo htmlspecialchars($_SESSION['number']);?></p></dd>
+			
+			<dt>メールアドレス</dt>
+			<dd><p class="ans-three"><?php echo htmlspecialchars($_SESSION['mail']);?></p></dd>
+			
+			<dt>性別</dt>
+			<dd><p class="ans-four"><?php echo htmlspecialchars($_SESSION['gender']);?></p></dd>
+			
+			<dt>趣味</dt>
+			<dd><p class="ans-five"><?php foreach ($_SESSION['hobby'] as $hobby) {
+				echo htmlspecialchars($hobby,ENT_QUOTES).'<br>';
+			}?></p></dd>
+			
+			<dt>去年の一番の思い出</dt>
+			<dd><p class="ans-six"><?php echo htmlspecialchars($_SESSION['lastyear']);?></p></dd>
+			
+			<dt>今年の抱負</dt>
+			<dd><p class="ans-seven"><?php echo htmlspecialchars($_SESSION['thisyear']);?></p></dd>
+
+		</dl>
 	</div>
 	<div class="next">
-		<p><a href="fortune.html">おみくじを引きに行く</a></p>
+		<p><a href="fortune.php" class="fortune">おみくじを引きに行く</a></p>
 
-		<p><a href="show_enq.php">アンケートの回答結果を見る</a></p>
+		<p><a href="show_enq.php" class="show_enq">アンケートの回答結果を見る</a></p>
 	</div>
 </body>
 </html>

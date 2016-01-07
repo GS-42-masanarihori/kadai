@@ -1,21 +1,9 @@
-<?php 
-
-//トップページ
-
-//①HTMLファイルで仮のページを作る（どっかに簡易的なログイン機能あればOK）
-//②ログイン部分に要素が入ったらそれをPOSTで送信する
-//③アンケート部分に進むボタンを押すと、input_enq.phpに飛ばす
-//④ログイン機能をつける。sessionで情報をキープ
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
 	<title>TOPページ</title>
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 <div class="main-contents">
