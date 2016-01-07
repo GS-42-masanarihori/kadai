@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+.answer {
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.answer h1{
+	font-size: 26px;
+}
+
+.enq_answer{
+	width: 90%;
+	margin: 0 auto;
+}
+.enq_answer table{
+	margin: 0 auto;
+}
+
+.enq_answer tr:nth-child(odd){
+	background-color: #000;
+	color: #fff;
+}
+.enq_answer tr:nth-child(odd) td{
+	color: #fff;
+}
+
+
+
+
+

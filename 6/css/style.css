@@ -1,12 +1,9 @@
 @charset "utf-8";
 
-body{
-	background: #e0e0e0;
-}
+
 .login{
-	background: #e0e0e0;
 	width: 15%;
-	margin: 0 auto;
+	margin: 40px auto;
 }
 
 .login dt{
@@ -19,7 +16,6 @@ body{
 }
 
 .main-contents{
-	background: blue;
 	width: 70%;
 	margin: 0 auto;
 }
@@ -30,7 +26,6 @@ body{
 }
 
 .message{
-	background: green;
 	width: 70%;
 	margin: 0 auto;
 	position: absolute;
@@ -49,6 +44,20 @@ body{
 
 .login-text p{
 	text-align: center;
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: bold;
+}
+
+
+
+.submit input{
+	width: 210px;
+	height: 39px;
+    font-size: 1em;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+    margin: 20px auto;
 }

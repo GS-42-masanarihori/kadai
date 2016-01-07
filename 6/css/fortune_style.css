@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+
+.fortune-title{
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.fortune-title h1{
+	font-size: 24px;
+}
+
+.fortune-text{
+	width: 70%;
+	margin: 0 auto;
+	border: solid 2px #e0e0e0;
+	display: none;
+	text-align: center;
+}
+
+.result{
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+}
+
+.others{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.again{
+	text-decoration: none;
+	background-color: red;
+	display: block;
+	width: 25%;
+	height: 30px;
+	color: #fff;
+	border-radius: 4px;
+	padding-top: 5px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.logout{
+	text-decoration: none;
+	background-color: #000;
+	display: block;
+	width: 25%;
+	height: 30px;
+	color: #fff;
+	border-radius: 4px;
+	padding-top: 5px;
+	margin: 0 auto;
+	text-align: center;
+}
