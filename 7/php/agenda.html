@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>今回やったこと・やりたかったこと</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<style>
+	#agenda{
+		display: none;
+		width: 70%;
+		margin: 0 auto;
+	}
+</style>
+</head>
+
+<body>
+<div id="agenda">
+	<h1>やったこと</h1>
+	<p>①2つのデータベースの接続（リレーション）</p>
+	<p>②データベース内容の編集・削除を行えるようにした</p>
+	<p>③requireを使い、dbconnect.phpというデータベース用のphpを呼び出す設定にした</p>
+
+	<h1>やりたかったこと</h1>
+	<p>①PDOの利用（たまたま勉強のために使っている本がmysqli_connect()を使っていたので、それに乗っとってやってしまった）</p>
+	<p>②本当は緯度経度をデータベース化して、以前作ったオシャレ不動産MAPに登録、表示できるようにしたかったが、エラーが多発して断念…。卒業制作では地図から探せるオシャレ不動産アプリを作ろうと思っているので、近いうちにできるようにします。</p>
+	<p>③毎度お馴染み、デザイン（笑）</p>
+
+</div>
+
+<script>
+	$(function(){
+		$('#agenda').fadeIn(2000);
+	});
+</script>
+</body>
+</html>
