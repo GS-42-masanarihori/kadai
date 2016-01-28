@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+.logincontents{
+	width: 70%;
+	margin: 0 auto;
+}
+
+header{
+	margin: 20px 0;
+	text-align: center;
+	font-size: 20px;
+}
+
+.idpass{
+	text-align: center;
+	margin: 0 0 40px 0;
+}
+
+.register{
+	text-align: center;
+}
+.login{
+	background-color: red;
+	width: 200px;
+	margin: 0 auto;
+	border-radius: 5px;
+	cursor:pointer;
+
+}
+
+.login:hover{
+	opacity: 0.8;
+}
+
+.login input{
+	background-color: red;
+	color: white;
+	font-size: 15px;
+	border: none;
+	border-radius: 5px;
+	cursor:pointer;
+}
+
+.submit{
+	background-color: black;
+	width: 200px;
+	margin: 0 auto;
+	border-radius: 5px;
+	cursor: pointer;
+
+}
+
+.submit input{
+	background-color: black;
+	color: white;
+	font-size: 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.submit:hover{
+	opacity: 0.8;
+}
+
+

@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+.contents{
+	width: 70%;
+	margin: 0 auto;
+}
+
+header{
+	background-color: black;
+	color: white;
+}
+
+header p {
+	text-align: right;
+}
+
+.navbar{
+	text-align: center;
+	font-size: 20px;
+	font-family: Arial;
+}
+
+img{
+	width: 945px;
+}
+.next{
+	margin: 40px auto;
+	background-color: red;
+	width: 200px;
+	border-radius: 5px;
+}
+.next a{
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+}
+
+.next:hover{
+	opacity: 0.8;
+}
+
+.logout{
+	margin: 0 auto;
+	background-color: black;
+	width: 200px;
+	border-radius: 5px;
+}
+.logout a{
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+}
+
+.logout:hover{
+	opacity: 0.8;
+}
+
