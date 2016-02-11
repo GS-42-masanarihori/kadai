@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Area</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <style>
+    canvas{
+      border: solid 2px red;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id='world' width="400px" height="400px"></canvas>
+
+
+<script>
+$(function(){
+    var x = 0;
+    var y = 0;
+
+    var _x;
+    var _y;
+    
+    var canvas = document.getElementById("world");
+    var ctx = canvas.getContext("2d");
+
+    $('#world').mousedown(function(e){
+  var railhead = e.target.getBoundingClientRect();
+  x = e.clientX-railhead.left;
+  y = e.clientY-railhead.top;
+  
+      $('#world').bind('mousemove',function(e){
+    var railhead = e.target.getBoundingClientRect();
+    _x = e.clientX-railhead.left;
+    _y = e.clientY-railhead.top;
+    
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.strokeRect(x,y,_x-x,_y-y);
+      });
+    });
+    
+    $('#world').mouseup(function(){
+  $('#world').unbind('mousemove');
+    });
+});
+
+  
+</script>
+</body>
+</html>

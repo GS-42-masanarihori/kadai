@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta property="og:title" content="Milkcocoaで作ったリアルタイムチャット" />
+    <meta property="og:type" content="chat" />
+    <meta property="og:description" content="BaaS（Milkcocoa）で作られたリアルタイムチャット" />
+    <title>Milkcocoaで作ったリアルタイムチャット</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://cdn.mlkcca.com/v2.0.0/milkcocoa.js"></script>
+    <script>
+    $(function() {
+        //1.ミルクココアインスタンスを作成
+        var milkcocoa = new MilkCocoa("{your-app-id}.mlkcca.com");
+
+        //2."message"データストアを作成
+        var ds = milkcocoa.dataStore("message");
+
+        //3."message"データストアからメッセージを取ってくる
+        ds.stream().sort("desc").next(function(err, datas) {
+            datas.forEach(function(data) {
+                renderMessage(data);
+            });
+        });
+
+        //4."message"データストアのプッシュイベントを監視
+        ds.on("push", function(e) {
+            renderMessage(e);
+        });
+
+        var last_message = "dummy";
+
+        function renderMessage(message) {
+            var message_html = '<p class="post-text">' + escapeHTML(message.value.content) + '</p>';
+            var date_html = '';
+            if(message.value.date) {
+                date_html = '<p class="post-date">'+escapeHTML( new Date(message.value.date).toLocaleString())+'</p>';
+            }
+            $("#"+last_message).before('<div id="'+message.id+'" class="post">'+message_html + date_html +'</div>');
+            last_message = message.id;
+        }
+
+        function post() {
+            //5."message"データストアにメッセージをプッシュする
+            var content = escapeHTML($("#content").val());
+            if (content && content !== "") {
+                ds.push({
+                    title: "タイトル",
+                    content: content,
+                    date: new Date().getTime()
+                }, function (e) {});
+            }
+            $("#content").val("");
+        }
+
+        $('#post').click(function () {
+            post();
+        })
+        $('#content').keydown(function (e) {
+            if (e.which == 13){
+                post();
+                return false;
+            }
+        });
+    });
+    //インジェクション対策
+    function escapeHTML(val) {
+        return $('<div>').text(val).html();
+    };
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="logo">CHAT</h1>
+    </div>
+
+    <div class="container">
+        <div class="postarea cf">
+
+            <div class="postarea-text">
+                <textarea name="" id="content" cols="30" rows="10" placeholder="Enterで投稿"></textarea>
+            </div>
+
+
+            <button id="post" class="postarea-button">投稿する</button>
+        </div>
+    </div>
+
+    <div id="messages" class="content">
+        <div id="dummy"></div>
+    </div>
+</body>
+</html>
