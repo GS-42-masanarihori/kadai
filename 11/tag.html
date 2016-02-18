@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>tag sample</title>
+	<link rel="stylesheet" href="css/tag.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<style>
+.sticky {
+  width: 250px;
+  height: 50px;
+  background-color: #aaf;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.selected {
+	border-color: #f44;
+}
+</style>
+
+</head>
+<body>
+	<select name="color" id="color">
+		<option value="#ffc">黄色</option>
+		<option value="#fcc">赤色</option>
+		<option value="#cfc">緑色</option>
+	</select>
+
+	<input type="button" id="new" value="new">
+	<input type="button" id="del" value="del">
+
+	<script>
+		$(function(){
+			$('#new').on('click',function(){
+				make();
+				save();
+			});
+
+			$('#del').on('click',function(){
+				$('.selected').remove();
+				save();
+			});
+
+			function make(){
+				var sticky = $('<div class="sticky">ここにメモを書いてください</div>');
+				//body要素に追加
+				sticky.appendTo('body')
+				//div要素の背景を変更
+				.css('background-color',$('#color').val())
+				//ドラッグ可能にする
+				.draggable({stop:save})
+				//ダブルクリックしたときの挙動
+				.dblclick(function(){
+					//divがダブルクリックされたら、div要素にtextareaを挿入する
+					$(this).html('<textarea>'+$(this).html()+'</textarea>')
+					//divの子要素となるtextareaを取得する
+					.children()
+					//子要素のtextareaにカーソルを移動する
+					.focus()
+					//フォーカスが外れたときの挙動
+					.blur(function(){
+						//textareaの親要素にいき、そのhtmlの中身をtextareaの中身に書き換える
+						$(this).parent().html($(this).val())
+						//保存するための関数を呼び出す
+						save();
+					});
+				//付箋の上でマウスが押されたときの挙動
+				}).on('mousedown',function(){
+					//付箋の上でマウスが押されたら、class="sticky"（全ての付箋）からselectedを除く
+					$('.sticky').removeClass('selected');
+					//押された付箋に対してはselectedのクラスをつける
+					$(this).addClass('selected');
+				});
+				//最終的に作成した付箋のjQueryオブジェクトを、呼び出し元に返す
+				return sticky;
+			}
+
+			function save(){
+				//itemsという空の配列を準備
+				var items = [];
+				//stickyというクラスを持っているものに対して、X座標、Y座標、背景色を与える。
+				$('.sticky').each(function(){
+					items.push({
+						css:{
+							left: $(this).css('left'),
+							top: $(this).css('top'),
+							backgroundColor: $(this).css('background-color')
+						},
+						//htmlの内容も入れる
+						html: $(this).html()
+					});
+				});
+				//localStorageのキーstickyに値を保存する。
+				//JSON.stringifyはitemsで指定された要素をJSON形式にして返すメソッド。
+				localStorage.sticky = JSON.stringify(items);
+			}
+
+			function load(){
+				//localStorage.stickyが空のときには何もしない。
+				if(!localStorage.sticky){
+					return;
+				}else{
+					var items = JSON.parse(localStorage.sticky);
+					$.each(items,function(i,item){
+						make().css(item.css).html(item.html);
+
+					});	
+				}
+				
+			}
+
+			load();
+			
+		});
+	</script>
+</body>
+</html>
