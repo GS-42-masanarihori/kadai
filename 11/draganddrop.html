@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <style>
+    #photo {
+      border-radius: 3px;
+      width: 300px;
+      height: 300px;
+      padding: 5px;
+      border: 1px dashed #666666;
+    }
+
+  </style>
+</head>
+<body>
+ 
+<div id="photo">
+  <span>ここにファイルをドラッグしてください</span>
+  <div id="thumb"></div>
+</div>
+ 
+<script>
+$(function() {
+  $('#photo').on('dragover', function(e) {
+    return false;
+  });
+ 
+  $('#photo').on('drop', function(e) {
+     onDropFile(e);
+     return false;
+  });
+});
+ 
+function onDropFile(event) {
+  var $photoArea = $('#photo');
+  var $thumbArea = $('#thumb');
+  $thumbArea.empty();
+ 
+  var $span = $photoArea.find('span');
+  $span.css('color', '#000000');
+ 
+  var file = event.originalEvent.dataTransfer.files[0];
+  if(!file.type.match(/^image\/(jpeg|png)$/)) {
+    $span.css('color', '#ff0000').html("JPEGまたはPNGファイルを指定してください。");
+    return;
+  }
+ 
+  $span.empty();
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    // オリジナルの画像データ(data:image/jpeg;base64,xxxxx形式の文字列)
+    var dataUrl = e.target.result;
+ 
+    createThumbnail(dataUrl, function(thumbnail) {
+      var $img = $('<img />');
+      $img.attr('src', thumbnail);
+      $thumbArea.append($img);
+    });
+  }
+  reader.readAsDataURL(file);
+}
+ 
+function createThumbnail(dataUrl, callback) {
+  // サムネイル領域のサイズ
+  var thumbAreaWidth = $('#photo').width();
+  var thumbAreaHeight = $('#photo').height();
+ 
+  var image = new Image();
+  image.onload = function() {
+    // サムネイル領域に収まる画像のサイズを計算
+    var maxSize = Math.max(thumbAreaWidth, thumbAreaHeight);
+    var w = image.width;
+    var h = image.height;
+ 
+    if(image.width > maxSize || image.height > maxSize) {
+      var scale = maxSize / Math.max(image.width, image.height);
+      w = parseInt(image.width * scale);
+      h = parseInt(image.height * scale);
+    }
+ 
+    // サムネイルを作成
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = w;
+    canvas.height = h;
+    ctx.drawImage(image, 0, 0, w, h);
+ 
+    callback(canvas.toDataURL());
+  }
+  image.src = dataUrl;
+}
+</script>
+ 
+</body>
+</html>
