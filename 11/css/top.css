@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+/*first view area*/
+.first_view{
+	background-color: #1e90ff;
+	text-align: center;
+	opacity: 0.9;
+}
+
+/*title*/
+.title h1{
+	font-size: 34px;
+	font-weight: bold;
+	color: white;
+	padding: 80px 0;
+}
+
+.title h2{
+	font-size: 20px;
+	color: white;
+	padding-bottom: 30px;
+}
+
+.title h3{
+	font-size: 16px;
+	color: white;
+	padding-bottom: 30px;
+}
+/*title end*/
+
+/*contents*/
+
+.top_contents h2{
+	color: white;
+}
+
+.register{
+	display: block;
+	background-color: #00ff7f;
+	width: 25%;
+	padding: 10px;
+	margin: 0 auto;
+	text-decoration: none;
+	color: white;
+	border-radius: 4px;
+	margin-bottom: 40px;
+}
+
+.register:hover{
+	opacity: 0.7;
+}
+
+.login{
+	display: block;
+	background-color: #00ff7f;
+	width: 20%;
+	padding: 10px;
+	margin: 0 auto 40px auto;
+	text-decoration: none;
+	color: white;
+	border-radius: 4px;
+
+}
+
+.login:hover{
+	opacity: 0.7;
+}
+/*contents end*/
+
+/*news*/
+.news{
+	width: 20%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.news h3{
+	text-align: center;
+	color: white;
+	padding-bottom: 20px;
+}
+
+.news span{
+	border-bottom: dotted 2px #ffffff;
+}
+
+.news li{
+	color: white;
+	padding-bottom: 15px;
+}
+/*news end*/
+
+/*first view area end*/
+
+/****************************************************************/
+
+/*second view area*/
+.second_view{
+	margin-top: 30px;
+}
+
+/*second title*/
+
+.text_title{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.text_title h2{
+	font-size: 34px;
+	font-weight: bold;
+}
+
+/*second title end*/
+
+/*second text*/
+.text_area{
+
+	width: 48%;
+	float: left;
+	margin-left: 1%;
+	margin-right: 2%;
+}
+
+.text_area h3{
+	font-size: 26px;
+	font-weight: bold;
+	margin: 50px 0;
+	text-align: center;
+}
+
+.text_area ol{
+	width: 60%;
+	margin: 0 auto;
+}
+
+.text_area li{
+	font-size: 20px;
+	font-weight: bold;
+	margin: 30px 0;
+	text-align: left;
+}
+
+.text_area li:last-child{
+	margin-bottom: 49px;
+}
+
+/*second text end*/
+
+/*second youtube*/
+
+.youtube_area{
+
+	width: 48%;
+	float: left;
+}
+
+/*second youtube end*/
+
+/*second view area end*/
+
+/****************************************************************/
+
+/*third view area*/
+
+.third_view{
+	clear: both;
+	background-color: #1e90ff;
+
+}
+
+.third_text_title{
+	color: white;
+	text-align: center;
+}
+
+.third_text_title h2{
+	font-size: 34px;
+	font-weight: bold;
+	padding: 40px 0;
+}
+
+/*third text area*/
+
+.third_text_area{
+	color: white;
+}
+
+.third_text_area p{
+	text-align: center;
+	padding: 15px 0;
+	font-size: 20px;
+
+}
+
+/*third text area end*/
+
+/*third view area end*/
+
+/*fourth view area*/
+
+.fourth_view{
+	margin-top: 30px;
+}
+
+.fouth_text_title{
+	text-align: center;
+}
+
+.fouth_text_title h2{
+	font-size: 34px;
+	font-weight: bold;
+}
+
+
+.course_wrapper{
+	display:table;
+    border-collapse:separate;
+    border-spacing: 30px 30px;　/*数字は「左右、上下」*/
+    width: 600px;
+    height:200px;
+    margin: 0 auto;
+}
+
+.course{
+	width: 200px;
+	height: 200px;
+	background-color: #1e90ff;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.course p{
+	color: white;
+
+}
+
+
+
+
+/*fourth view area end*/
+
+/*スムーススクロール*/
+#back-to-top{
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	background-color: #1e90ff;
+	padding: 15px;
+	cursor: pointer;
+}
+
+#back-to-top a{
+	display: block;
+	font-size: 18px;
+	text-decoration: none;
+	color: white;
+}
+/*スムーススクロール end*/
