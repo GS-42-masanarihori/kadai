@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Share Images（TOPページ）</title>
+	<link rel="stylesheet" href="css/top.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<!-- 1st view -->
+
+<div class="first_view">
+	<!-- タイトル部分 -->
+	<div class="title">
+		<h1>Share Images</h1>
+		<h2>less communication, more comfortable.</h2>
+		<h3>Web制作のディスカッションを、全ての人に。</h3>
+	</div>
+	<!-- タイトル部分終わり -->
+
+	<!-- TOPページコンテンツ -->
+	<div class="top_contents">
+		<a href="php/register.php" class="register">今すぐ登録して始める</a>
+		<a href="php/login.php" class="login">ログイン</a>
+	</div>
+	<!-- TOPページコンテンツ終わり -->
+
+
+	<!-- news -->
+
+	<div class="news">
+		<h3><span>news</span></h3>
+		<ul>
+			<li>2016.02.09 堀の誕生日</li>
+			<li>2016.02.08 堀の誕生日の前日</li>
+			<li>2016.02.07 堀の誕生日の前日の前日</li>
+		</ul>	
+	</div>
+	<!-- news終わり -->
+	
+</div>
+
+<!-- 1st view end -->
+
+<!-- 2nd view -->
+
+<div class="second_view">
+	<div class="text_title">
+		<h2>サービス概要</h2>
+	</div>
+
+	<div class="text_area">
+		<h3>Share Imagesの特徴</h3>
+		<ol>
+			<li>1.簡単に画像を取り込むことができます。</li>
+			<li>2.直感的にメモの書き込みができます。</li>
+			<li>3.その場で意見をシェアし、会議ができます。</li>
+		</ol>
+	</div>
+
+	<div class="youtube_area">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/_jKNS9bF4ds?list=PLtvGIUIbJ1ubFtDwUI_FhONEySx4wKAEc" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+
+<!-- 2nd view end -->
+
+<!-- 3rd view -->
+
+<div class="third_view">
+	
+	<div class="third_text_title">
+		<h2>Web制作のディスカッションを、全ての人に。</h2>
+	</div>
+
+	<div class="third_text_area" id="third_text_area">
+		<p>Share Imagesはweb制作を行う場面で</p>
+		<p>知識の全くない人でもデザイナーやエンジニアと</p>
+		<p>気軽にコミュニケーションをとることができるツールです。</p>
+		<p>プログラミングやデザインの知識がなくても</p>
+		<p>スムーズにデザイナーやエンジニアとコミュニケーションができます。</p>
+		<p>「この並びをもう少し変えて欲しい」</p>
+		<p>「ここの色合いはこんな感じで」</p>
+		<p>といった要望をデザイナーやエンジニアにリアルタイムに共有しながら</p>
+		<p>ディスカッションをできるツールです。</p>
+		<p>さあ、Share Imagesで、よりストレスのないWeb制作へ。</p>
+	</div>
+
+</div>
+
+<!-- 3rd view end -->
+
+<!-- 4th view -->
+<div class="fourth_view">
+	
+	<div class="fouth_text_title">
+		<h2>料金体系</h2>
+	</div>
+
+	<div class="course_wrapper">
+		<ul>
+			<li class="course"><p>free</p><br><p>¥0 / 月</p></li>
+
+			<li class="course"><p>standard</p><br><p>¥980 / 月</p></li>
+
+			<li class="course"><p>premium</p><br><p>¥1980 / 月</p></li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- 4th view end -->
+
+<!-- スムーススクロール -->
+<div id="back-to-top"><a href="#">↑</a></div>
+<!-- スムーススクロール end -->
+
+<!-- jQuery -->
+<script>
+	$(function(){
+		//back-to-topを消す
+		$('#back-to-top').hide();
+
+		//スクロールが十分されたback-to-topを表示 スクロールが戻ったらまた非表示。
+		$(window).scroll(function(){
+			$(this).scrollTop();
+			if($(this).scrollTop() > 60){
+				$('#back-to-top').fadeIn();
+			} else {
+				$('#back-to-top').fadeOut();
+			}
+		});
+		//back-to-topがクリックしたら↑に戻る
+		$('#back-to-top').on('click',function(){
+			$('body').animate({
+				scrollTop:0
+			},800);
+			return false;
+		});
+	});
+</script>
+
+<!-- jQuery end -->
+
+</body>
+</html>
