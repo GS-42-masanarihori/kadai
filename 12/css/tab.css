@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.tab{
+	width: 500px;
+	margin: 100px auto;
+}
+
+.tab-btn{
+	background-color: #e5e5e5;
+	overflow: hidden;
+}
+
+.tab .btn{
+	float: left;
+	width: 33%;
+	height: 50px;
+	line-height: 50px;
+	font-family: impact;
+	font-size: 25px;
+	box-sizing: border-box;
+	padding: 0 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.tab-content{
+	box-sizing: border-box;
+	border: 2px solid #000;
+	padding: 15px;
+	font-size: 12px;
+	font-family: impact;
+	color: #555;
+}
+.tab-content div{
+	display: none;
+}
+
+.tab .btn.on{
+	background-color: #000;
+	color: #fff;
+}
+
+
+.tab .tab-content div.on{
+	display: block;
+}
+
+
