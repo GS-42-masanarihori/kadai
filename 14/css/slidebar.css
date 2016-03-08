@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.page-main > aside{
+	background-color: rgba(0,0,0,0.8);
+	width: 350px;
+	height: 100%;
+	top: 0;
+	/*left: -300px;*/
+	position: fixed;
+}
+
+.page-main > aside ul{
+	margin: 0;
+	padding: 0;
+	top: 150px;
+	left: 114px;
+	position: absolute;
+}
+
+.page-main > aside li{
+	margin: 0 0 50px;
+	list-style-type: none;
+}
+
+.page-main > aside button{
+	background-color: rgba(0,0,0,0.8);
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 350px;
+	width: 40px;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+	border: none;
+
+}
+.page-main > aside button a{
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+}
