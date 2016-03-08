@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>画像をアップロードするための仕組み（考え中）</title>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+ 
+  <div class="contents">
+  <form action="" method="post" enctype="multipart/form-data">
+      <div class="fileUpload">
+        <div class="dragArea">ここにファイルをドロップ</div>
+        <span class="fileupImg">画像をアップロード</span>
+        <input type="file" accept='image/*' name="img">
+        <figure>
+          <img src="" class="thumb" alt="">
+        </figure>
+        <div class="fileInfo"></div>
+      </div>
+    </form>
+  </div>
+
+
+	
+	<div id="footer">
+		
+	<!-- /#footer --></div>
+<!-- /#wrapper --></div>
+<script>
+$(function(){
+
+  $(".fileupImg").on("click", function(event){
+         $("input[name=img]").trigger("click");
+      });
+      $('input[name=img]').change(function(){
+   
+          if (!this.files.length) {
+              return;
+          }
+          var file = this.files[0];
+          upload(file);
+          
+      });
+   
+      // //ドラッグ＆ドロップの実装
+      // $('.dragArea').on('drop', function(e){
+      //   e.preventDefault();
+      // $('.dragArea').removeClass('over');
+      //   // ファイル情報を取得
+      //   var files = e.originalEvent.dataTransfer.files;
+      // upload(files[0]);
+     
+      // }).on('dragenter', function(){
+      //   $('.dragArea').addClass('over');
+      //   return false;
+      // }).on('dragover', function(){
+      //   $('.dragArea').addClass('over');
+      //   return false;
+      // }).on('dragleave', function(){
+      //   $('.dragArea').removeClass('over');
+      //   return false;
+      // });
+   
+      //HTMLに表示
+      function upload(file){
+        var fileInfo = "ファイル名： " + file.name + 
+          "<br>ファイルサイズ： " + file.size +
+          "<br>最終更新日時：" + file.lastModifiedDate;
+        
+          $(".fileInfo").html(fileInfo);
+          var $img = $(".thumb"), 
+              fileReader = new FileReader();   
+   
+          fileReader.onload = function(event) {
+              $img.attr('src', event.target.result);
+   
+          };
+          fileReader.readAsDataURL(file);
+      }
+
+});
+  
+</script>
+</body>
+</html>

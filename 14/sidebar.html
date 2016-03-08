@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>sidebar</title>
+	<link rel="stylesheet" href="css/slidebar.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="page-main">
+	<aside>
+		<ul>
+			<li><p><a href="#"></a>メニュー1</p></li>
+			<li><p><a href="#"></a>メニュー2</p></li>
+			<li><p><a href="#"></a>メニュー3</p></li>
+		</ul>
+
+		<button><a href="#">→</a></button>
+	</aside>
+</div>
+
+<script>
+	$(function(){
+		var duration = 300;
+		//asideタグの変数
+		var $aside = $('.page-main > aside');
+		//asideの子要素のbuttonタグの変数
+		var $asideButton = $aside.find('button');
+
+		$asideButton.on('click',function(){
+			$aside.toggleClass('open');
+
+			if($aside.hasClass('open')){
+				$aside.stop(true).animate({
+					left:'-70px'
+				},duration);
+				$asideButton.find('a').text('←');
+			}else{
+				$aside.stop(true).animate({
+					left:'-350px'
+				},duration);
+				$asideButton.find('a').text('→');
+			}
+		});
+
+	}); 
+</script>
+	
+</body>
+</html>

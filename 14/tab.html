@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>tabsample</title>
+	<link rel="stylesheet" href="css/tab.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+<div class="tab">
+	<div id="tab-btn">
+		<div class="btn on">方法1</div>
+		<div class="btn">方法2</div>
+		<div class="btn">方法3</div>
+	</div>
+
+	<div class="tab-content">
+		<div class="on">
+			<p>こちらがないようになります</p>
+		</div>
+
+		<div>
+			<p>こちらがないようになります２</p>
+		</div>
+
+		<div>
+			<p>こちらがないようになります３</p>
+		</div>
+	</div>
+</div>
+
+	<script>
+		$(function(){
+			$('.btn').on('click',function(){
+				//全てのbtnクラス、tab-contentクラスのdivからonを削除
+				$('.btn , .tab-content div').removeClass('on');
+				//クリックしたbtnクラスにonを追加
+				$(this).addClass('on');
+				//クリックした要素と同じ番号を持ったdivに対してonを追加
+				$('.tab-content div').eq($(this).index()).addClass('on');
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+body{
+	background-color: #f5f5f5;
+}
+
+.register_text{
+	text-align: center;
+}
+
+/*register area*/
+
+.register{
+	border: 1px solid #d3d3d3;
+	width: 30%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.register input{
+	padding: 5px 0;
+	font-size: 20px;
+	margin: 30px 0;
+	text-align: center;
+	border-radius: 3px;
+}
+.register input:focus{
+	border: solid 1px #1e90ff;
+}
+
+.register_btn{
+	border: none;
+	border-radius: 5px;
+	padding: 3px;
+	color: white;
+	background-color: #00ff7f;
+	width: 150px;
+	cursor: pointer;
+
+}
+
+.register_btn:hover{
+	opacity: 0.7;
+}
+/*register area end*/

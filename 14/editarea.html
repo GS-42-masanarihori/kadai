@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Area（概要図）</title>
+	<link rel="stylesheet" href="css/editarea.css" type="text/css">
+	<!-- <link rel="stylesheet" href="css/chat.css" type="text/css"> -->
+	<link rel="stylesheet" href="css/remodal.css">
+	<link rel="stylesheet" href="css/remodal-default-theme.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://cdn.mlkcca.com/v2.0.0/milkcocoa.js"></script>
+	<script src="js/remodal.min.js"></script>
+</head>
+<body>
+<!-- header -->
+	<div class="header">
+		<div class="header_logo">
+			<a href="index.html">ロゴが入ります</a>
+		</div>
+		<div class="tool_wrapper">
+			<!-- logout.phpへ -->
+			<a href="php/logout.php" class="tool">ログアウト</a>
+			<!-- ファイル管理のためのボタン -->
+			<a href="#" class="tool">ファイル管理</a>
+			<!-- ユーザー追加ボタン -->
+			<a href="#" class="tool">ユーザー追加</a>
+			<!-- ログアウトボタン -->
+		</div>
+	</div>
+
+<!-- header end-->
+
+<!-- memo area -->
+	<div class="memo">
+		<h2>サポートツールのエリアです</h2>
+		
+
+		<ul>
+			<li><a href="#notice">STEP1</a></li>
+			<li><p>1.要件定義とは</p></li>
+			<li><p>2.ワイヤーフレームを作ろう</p></li>
+			<li><p>3.デザインをデザイナーにお願いしよう</p></li>
+			<li><p>4.デザインの修正をしよう</p></li>
+		</ul>
+		
+
+		<h3>STEP2</h3>
+		<p>1.要件定義とは</p>
+		<p>2.ワイヤーフレームを作ろう</p>
+		<p>3.デザインをデザイナーにお願いしよう</p>
+		<p>4.デザインの修正をしよう</p>
+
+		<h3>STEP3</h3>
+		<p>1.要件定義とは</p>
+		<p>2.ワイヤーフレームを作ろう</p>
+		<p>3.デザインをデザイナーにお願いしよう</p>
+		<p>4.デザインの修正をしよう</p>
+
+		<h3>STEP4</h3>
+		<p>1.要件定義とは</p>
+		<p>2.ワイヤーフレームを作ろう</p>
+		<p>3.デザインをデザイナーにお願いしよう</p>
+		<p>4.デザインの修正をしよう</p>
+
+	</div>
+
+<!-- memo area end-->
+
+<!-- modal contents -->
+
+<div class="remodal" data-remodal-id="notice" id="modal-area">
+    <!-- モーダルのタイトル -->
+    <h1>Remodal Title</h1>
+    <!-- モーダル表示の本文 -->
+    <p>Modal Contents2.</p>
+    <br>
+    <p>Modal Contents2.</p>
+    <br>
+
+
+
+
+    <!-- キャンセルボタン -->
+    <a class="remodal-cancel" href="#">Cancel</a>
+    <!-- OKボタン -->
+    <a class="remodal-confirm" href="#">OK</a>
+</div>
+
+<!-- modal contents end -->
+
+<!-- contents area -->
+	<div class="contents">
+		<h2>アップロードエリア</h2>
+		<div id="drag-area">
+  			<p>アップロードするファイルをドロップ</p>
+  			<p>または</p>
+  		
+  		<div class="btn-group">
+   			<input type="file" multiple="multiple">
+   			<button id="btn">ファイルを選択</button>
+   		</div>
+   		
+   		</div>
+	</div>
+
+
+<!-- contents area end-->
+
+<!-- chat area -->
+	<div class="chat">
+		<h2>ここがチャットエリアです</h2>
+		<textarea name="" id="msg" cols="30" rows="4"></textarea>
+  		<button name="button" onClick="clickEvent()">send message!</button>
+  		<ul id="board"></ul>
+
+	</div>
+
+<!-- chat area end-->
+
+<!-- jQuery -->
+
+<script>
+	var milkcocoa = new MilkCocoa('teaikgmqvzs.mlkcca.com');
+	/* your-app-id にアプリ作成時に発行される"io-"から始まるapp-idを記入します */
+	var chatDataStore = milkcocoa.dataStore("chat");
+	var textArea, board;
+	window.onload = function(){
+	  textArea = document.getElementById("msg");
+	  board = document.getElementById("board");
+	}
+	 
+	function clickEvent(){
+	  var text = textArea.value;
+	  sendText(text);
+	}
+	 
+	function sendText(text){
+	  chatDataStore.push({message : text},function(data){
+	    console.log("送信完了!");
+	    textArea.value = "";
+	  });
+	}
+	 
+	chatDataStore.on("push",function(data){
+	  addText(data.value.message);
+	});
+	 
+	function addText(text){
+	  var msgDom = document.createElement("li");
+	  msgDom.innerHTML = text;
+	  board.insertBefore(msgDom, board.firstChild);
+	}
+	 
+	    
+</script>
+
+<!-- jQuery end -->
+
+</body>
+</html>
