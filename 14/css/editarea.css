@@ -50,6 +50,15 @@
 	float: left;
 }
 
+.memo ul li{
+	list-style-type: none;
+}
+
+.memo ul li a{
+	text-decoration: none;
+}
+
+
 /*memo area end*/
 
 /****************************************************************/
